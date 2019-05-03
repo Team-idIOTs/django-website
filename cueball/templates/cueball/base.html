@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'cueball/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="header">
+      <a href="{% url 'index' %}" ><img src="{% static 'cueball/logo.png' %}" class="logo"></a>
+      <div class="header-right "id="circle">P</div>
+    </div>
+    
+    <div class="topnav">
+      <a {% if title == 'cues' %}class="active"{% endif %} href="{% url 'cues' %}">Cues</a>
+      <a {% if title == 'monitor' %}class="active"{% endif %} href="{% url 'monitor' %}">Monitor</a>
+      <a {% if title == 'settings' %}class="active"{% endif %} href="{% url 'settings' %}">Settings</a>
+    </div>
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
