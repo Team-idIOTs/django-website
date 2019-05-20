@@ -1,1 +1,32 @@
-<h1>{{title}}</h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'cueball/styles.css' %}">
+  <head>
+    <title>Cueball Landing Page</title>
+  </head>
+  
+  <body>
+    <div id = "content">
+		<img src="{% static 'cueball/logo.png' %}">      
+		<form action="/action_page.php">
+			<input type="text" id="name" name="username" placeholder="Your username">
+			</br>
+			<input type="text" id="pword" name="password" placeholder="Your password">
+			</br>
+			<input type="submit" value="Submit">
+		</form>
+		<p class = "info">
+			New? <a href="url">Learn More</a>
+		</p>
+    </div>
+	
+	<div id="footer">
+		<ul class = "info">
+			<li><a href="url">About Us</a></li>
+			<li><a href="url">Help</a></li>
+			<li><a href="url">Terms and Conditions</a></li>
+		</ul>
+	</div>
+  </body>
+</html>
