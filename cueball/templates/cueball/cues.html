@@ -3,5 +3,14 @@
 {% block title %}Cues and Reminders{% endblock %}
 
 {% block content %}
-<p>This is the cues and reminders viewer/editor</p>
+	<h2>This is the cues and reminders viewer/editor</h2>
+	<p>File upload</p>
+	
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="document">
+		<button type="submit">Upload file</button>
+	</form>
+
+  
 {% endblock %}

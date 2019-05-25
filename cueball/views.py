@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 from django.http import HttpResponse
@@ -10,9 +12,13 @@ def index(request):
     return render(request, 'cueball/index.html', context)
     
 def cues(request):
-    title = "cues"
-    context = {'title': title}
-    return render(request, 'cueball/cues.html', context)
+	title = "cues"
+	context = {'title': title}
+	if request.method == 'POST':
+	 uploaded_file = request.FILES['document']
+	 fs = FileSystemStorage()
+	 filename = fs.save(uploaded_file.name, uploaded_file)
+	return render(request, 'cueball/cues.html', context)
     
 def monitor(request):
     title = "monitor"
