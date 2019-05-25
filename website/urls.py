@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from accounts import views as accounts_views
 
 urlpatterns = [
     path('cueball/', include('cueball.urls')),
-    path('admin/', admin.site.urls),
+	path('admin/', admin.site.urls),
+	path('signup/', accounts_views.signup, name='signup'),
+	#path('logout/', accounts_views.LogoutView.as_view(), name='logout'),
 ]
