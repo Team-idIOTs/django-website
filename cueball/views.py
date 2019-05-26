@@ -28,4 +28,3 @@ def settings(request):
     title = "settings"
     context = {'title': title}
     return render(request, 'cueball/settings.html', context)
-    
